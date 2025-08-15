@@ -1,91 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Durga Ganesh Youth Gidajam</title>
+    <title>Sri Durga Ganesh Youth</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #fff5e6;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f5f0;
             color: #333;
         }
-
         header {
-            background-color: #f57c00;
+            background-color: #0b1d3a;
             color: white;
-            padding: 20px 0;
             text-align: center;
+            padding: 1rem;
         }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2em;
+        header img {
+            width: 120px;
         }
-
-        .hero {
-            text-align: center;
-            padding: 30px;
+        nav {
+            background-color: #b71c1c;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-
-        .hero img {
-            max-width: 200px;
-            border-radius: 50%;
+        nav a {
+            color: white;
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
         }
-
-        .hero p {
-            font-size: 1.2em;
-            margin-top: 20px;
+        nav a:hover {
+            background-color: #d32f2f;
         }
-
         section {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
+            padding: 2rem;
+            text-align: center;
         }
-
         h2 {
-            color: #f57c00;
-            margin-top: 40px;
+            color: #b71c1c;
         }
-
+        .events, .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .events div, .gallery img {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            width: 300px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .donate {
+            background-color: #fff7e6;
+            padding: 2rem;
+            border-radius: 10px;
+            display: inline-block;
+        }
         footer {
-            background: #f57c00;
+            background-color: #0b1d3a;
             color: white;
             text-align: center;
-            padding: 15px 0;
-            margin-top: 50px;
+            padding: 1rem;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Sri Durga Ganesh Youth Gidajam</h1>
-    </header>
+        <img src="ganesh-logo.png" alt="Sri Durga Ganesh Youth Logo">
+        <h1>Sri Durga Ganesh Youth</h1>
+    </header><nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#donate">Donate</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <div class="hero">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Lord_Ganesha.jpg" alt="Lord Ganesha">
-        <p>Welcome to Sri Durga Ganesh Youth Gidajam – a group of passionate youngsters united in devotion, service, and cultural spirit.</p>
+<section id="home">
+    <h2>Welcome to Sri Durga Ganesh Youth</h2>
+    <p>Celebrating devotion, unity, and cultural heritage through our Ganesh Utsav and social service activities.</p>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>We are a youth group dedicated to organizing grand Ganesh Chaturthi celebrations, cultural programs, and community service initiatives that bring people together in devotion and joy.</p>
+</section>
+
+<section id="events">
+    <h2>Upcoming Events</h2>
+    <div class="events">
+        <div>
+            <h3>Ganesh Chaturthi 2025</h3>
+            <p>Date: 27 August 2025</p>
+            <p>Join us for the grand celebration with music, dance, and aarti.</p>
+        </div>
+        <div>
+            <h3>Charity Drive</h3>
+            <p>Date: 10 September 2025</p>
+            <p>Distributing food and clothes to the needy in our community.</p>
+        </div>
     </div>
+</section>
 
-    <section>
-        <h2>Our Activities</h2>
-        <ul>
-            <li>Ganesh Chaturthi celebrations</li>
-            <li>Community service & charity work</li>
-            <li>Festive decorations and processions</li>
-            <li>Competitions and youth talent events</li>
-        </ul>
+<section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="ganesh1.jpg" alt="Ganesh Idol" width="300">
+        <img src="ganesh2.jpg" alt="Ganesh Utsav" width="300">
+        <img src="ganesh3.jpg" alt="Cultural Program" width="300">
+    </div>
+</section>
 
-        <h2>Contact Us</h2>
-        <p>Email: youthvinayaka@example.com</p>
-        <p>Instagram: @sriganeshyouthgidajam</p>
-    </section>
+<section id="donate">
+    <h2>Support Us</h2>
+    <div class="donate">
+        <p>Your contribution helps us organize better celebrations and serve the community.</p>
+        <p><strong>UPI ID:</strong> example@upi</p>
+        <img src="upi-qr.png" alt="UPI QR Code" width="200">
+    </div>
+</section>
 
-    <footer>
-        © 2025 Sri Durga Ganesh Youth Gidajam. All rights reserved.
-    </footer>
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 Phone: +91 9876543210</p>
+    <p>📧 Email: contact@ganeshyouth.com</p>
+    <p>🌐 Follow us on Instagram & Facebook</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Sri Durga Ganesh Youth. All Rights Reserved.</p>
+</footer>
+
 </body>
 </html>
