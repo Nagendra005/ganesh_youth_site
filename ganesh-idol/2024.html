@@ -2,58 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ganesh Idol - 2024</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f8f5f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #b71c1c;
+      color: white;
       text-align: center;
-      padding: 2rem;
+      padding: 1rem;
     }
-
     h1 {
-      color: #b71c1c;
+      margin: 0;
+      font-size: 2rem;
     }
-
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      margin-top: 2rem;
+      padding: 2rem;
     }
-
     .gallery img {
       width: 300px;
+      height: auto;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      padding: 0.5rem;
-      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
     }
-
-    a.back-link {
-      display: inline-block;
-      margin-top: 2rem;
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .back-button {
+      display: block;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .back-button a {
+      background-color: #b71c1c;
+      color: white;
       text-decoration: none;
-      color: #b71c1c;
+      padding: 10px 20px;
+      border-radius: 8px;
       font-weight: bold;
     }
-
-    a.back-link:hover {
-      text-decoration: underline;
+    .back-button a:hover {
+      background-color: #d32f2f;
     }
   </style>
 </head>
 <body>
-  <h1>Ganesh Idol Photos – 2024</h1>
+
+  <header>
+    <h1>Ganesh Idol - 2024</h1>
+  </header>
 
   <div class="gallery">
-    <img src="../images/ganesh-idol/2024-1.jpg" alt="Ganesh Idol 1" />
-    <img src="../images/ganesh-idol/2024-2.jpg" alt="Ganesh Idol 2" />
-    <img src="../images/ganesh-idol/2024-3.jpg" alt="Ganesh Idol 3" />
+    <!-- Add your images here -->
+    <img src="images/2024/img1.jpg" alt="Ganesh Idol Image 1" />
+    <img src="images/2024/img2.jpg" alt="Ganesh Idol Image 2" />
+    <img src="images/2024/img3.jpg" alt="Ganesh Idol Image 3" />
   </div>
 
-  <a href="../index.html#gallery" class="back-link">← Back to Gallery</a>
+  <div class="back-button">
+    <a href="../index.html">← Back to Gallery</a>
+  </div>
+
 </body>
 </html>
