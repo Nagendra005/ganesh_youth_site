@@ -118,7 +118,7 @@
       width: 100%;
       height: 120px;
       object-fit: cover;
-      border-radius: 50%; /* Make it circular like a profile */
+      border-radius: 12px; /* ✅ Rounded rectangle instead of circle */
       margin-bottom: 1rem;
     }
 
@@ -189,7 +189,7 @@
 
       <!-- Cultural Program -->
       <a href="cultural-program/index.html" class="gallery-card">
-        <img src="imahe-4.png" alt="Cultural Program" />
+        <img src="image-4.png" alt="Cultural Program" />
         <span>Cultural Program</span>
       </a>
     </div>
@@ -230,4 +230,16 @@
   </footer>
 
   <script>
-    function copy
+    function copyUPI() {
+      const upiId = document.getElementById("upi-id").textContent;
+      navigator.clipboard.writeText(upiId).then(() => {
+        document.getElementById("copy-status").style.display = "inline";
+        setTimeout(() => {
+          document.getElementById("copy-status").style.display = "none";
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
