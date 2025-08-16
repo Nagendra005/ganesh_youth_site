@@ -170,17 +170,36 @@
     <h2>Support Us</h2>
     <h3>Support Us via UPI</h3>
 
-    <p><strong>UPI ID:</strong> 9908439697-2@ybl</p>
+    <p>Your contribution helps us organize better celebrations and serve the community.</p>
 
-    <!-- Direct UPI payment link -->
-    <a href="upi://pay?pa=9908439697-2@ybl&pn=Sri%20Durga%20Ganesh%20Youth&am=10&cu=INR" 
-       style="display:inline-block; background-color:#b71c1c; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">
-       Pay Now via UPI
-    </a>
+    <p>
+        <strong>UPI ID:</strong> 
+        <span id="upi-id">9908439697-2@ybl</span>
+        <button onclick="copyUPI()" style="margin-left:10px; padding:5px 10px; border:none; background-color:#b71c1c; color:white; border-radius:5px; cursor:pointer;">
+            Copy
+        </button>
+        <span id="copy-status" style="margin-left:10px; color:green; display:none;">Copied!</span>
+    </p>
 
-    <br><br>
+    <br>
     <img src="IMG_20250816_135802.jpg" alt="Scan to Pay" width="200">
+
+    <p style="font-size: 0.9rem; color: #555;">💡 Long press the UPI ID above to copy on mobile — or click "Copy" button</p>
 </section>
+
+<!-- Add this script at the end of your body tag OR inside <script> -->
+<script>
+    function copyUPI() {
+        const upiId = document.getElementById("upi-id").textContent;
+        navigator.clipboard.writeText(upiId).then(() => {
+            document.getElementById("copy-status").style.display = "inline";
+            setTimeout(() => {
+                document.getElementById("copy-status").style.display = "none";
+            }, 2000);
+        });
+    }
+</script>
+
 
 
 
