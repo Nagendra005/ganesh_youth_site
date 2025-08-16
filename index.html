@@ -72,7 +72,30 @@
                 font-size: 0.9rem;
             }
         }
-    </style>
+   .gallery-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.gallery-button {
+    background-color: #b71c1c;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+}
+
+.gallery-button:hover {
+    background-color: #d32f2f;
+}
+ </style>
 </head>
 <body>
     <header style="text-align:center;">
@@ -117,18 +140,13 @@
 
 <section id="gallery">
     <h2>Gallery</h2>
-    <div class="gallery">
-        <a href="ganesh-idol.html">
-            <img src="ganesh1.jpg" alt="Ganesh Idol" width="300">
-        </a>
-        <a href="ganesh-utsav.html">
-            <img src="ganesh2.jpg" alt="Ganesh Utsav" width="300">
-        </a>
-        <a href="cultural-program.html">
-            <img src="ganesh3.jpg" alt="Cultural Program" width="300">
-        </a>
+    <div class="gallery-buttons">
+        <a href="ganesh-idol.html" class="gallery-button">Ganesh Idol</a>
+        <a href="ganesh-utsav.html" class="gallery-button">Ganesh Utsav</a>
+        <a href="cultural-program.html" class="gallery-button">Cultural Program</a>
     </div>
 </section>
+
 
 
 <section id="donate">
