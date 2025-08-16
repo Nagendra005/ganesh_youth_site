@@ -1,12 +1,93 @@
-<div class="gallery">
-  <!-- Images -->
-  <img src="IMG-20250816-WA0011.jpg" alt="Ganesh Idol 1" />
-  <img src="IMG-20250816-WA0012.jpg" alt="Ganesh Idol 2" />
-  <img src="IMG-20250816-WA0013.jpg" alt="Ganesh Idol 3" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ganesh Idol - 2024</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f5f0;
+      color: #333;
+    }
 
-  <!-- Video -->
-  <video controls>
-    <source src="VID-20240908-WA0000.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+    header {
+      background-color: #b71c1c;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .gallery img,
+    .gallery video {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover,
+    .gallery video:hover {
+      transform: scale(1.05);
+    }
+
+    .back-button {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .back-button a {
+      background-color: #b71c1c;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ganesh Idol - 2024</h1>
+  </header>
+
+  <div class="gallery">
+    <!-- Images -->
+    <img src="IMG-20250816-WA0011.jpg" alt="Ganesh Idol 1" />
+    <img src="IMG-20250816-WA0012.jpg" alt="Ganesh Idol 2" />
+    <img src="IMG-20250816-WA0013.jpg" alt="Ganesh Idol 3" />
+
+    <!-- Video -->
+    <video controls>
+      <source src="VID-20240908-WA0000.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="back-button">
+    <a href="index.html">← Back to Ganesh Idol Gallery</a>
+  </div>
+
+</body>
+</html>
