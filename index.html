@@ -86,7 +86,7 @@
       }
     }
 
-    /* Gallery Profile Cards */
+    /* Gallery Cards */
     .gallery-cards {
       display: flex;
       flex-wrap: wrap;
@@ -96,35 +96,41 @@
     }
 
     .gallery-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      position: relative;
+      display: block;
       width: 180px;
-      padding: 1rem;
+      height: 180px;
       background-color: #b71c1c;
       color: white;
       text-decoration: none;
       border-radius: 12px;
+      overflow: hidden;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
     .gallery-card:hover {
-      background-color: #d32f2f;
       transform: translateY(-5px);
     }
 
     .gallery-card img {
       width: 100%;
-      height: 120px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 12px; /* ✅ Rounded rectangle instead of circle */
-      margin-bottom: 1rem;
+      display: block;
     }
 
     .gallery-card span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem;
       font-size: 1rem;
       font-weight: bold;
+      color: white;
+      text-align: center;
     }
   </style>
 </head>
