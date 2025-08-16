@@ -1,105 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sri Durga Ganesh Youth ! </title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f8f5f0;
-      color: #333;
-    }
-    header {
-      background-color: #0b1d3a;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-    header img {
-      width: 120px;
-    }
-    nav {
-      background-color: #b71c1c;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      background-color: #d32f2f;
-    }
-    section {
-      padding: 2rem;
-      text-align: center;
-    }
-    h2 {
-      color: #b71c1c;
-    }
-    .events, .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .events div, .gallery img {
-      background: white;
-      border-radius: 10px;
-      padding: 1rem;
-      width: 300px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    .donate {
-      background-color: #fff7e6;
-      padding: 2rem;
-      border-radius: 10px;
-      display: inline-block;
-    }
-    footer {
-      background-color: #0b1d3a;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-    @media (max-width: 600px) {
-      nav a {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-      }
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sri Durga Ganesh Youth ! </title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f5f0;
+            color: #333;
+        }
+        header {
+            background-color: #0b1d3a;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        header img {
+            width: 120px;
+        }
+        nav {
+            background-color: #b71c1c;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #d32f2f;
+        }
+        section {
+            padding: 2rem;
+            text-align: center;
+        }
+        h2 {
+            color: #b71c1c;
+        }
+        .events, .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .events div, .gallery img {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            width: 300px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .donate {
+            background-color: #fff7e6;
+            padding: 2rem;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        footer {
+            background-color: #0b1d3a;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
 
-    .gallery-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+        /* New styles for gallery buttons/cards */
+        .gallery-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
 
-    .gallery-button {
-      background-color: #b71c1c;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: background 0.3s;
-    }
+        .gallery-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            text-align: center;
+            background-color: #b71c1c;
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
 
-    .gallery-button:hover {
-      background-color: #d32f2f;
-    }
-  </style>
+        .gallery-card:hover {
+            background-color: #d32f2f;
+            transform: translateY(-5px);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-card span {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body>
+  <body>
   <header>
     <img src="image-1.png" alt="sri Durga Ganesh Youth Logo" style="height:150px;">
     <h1>Sri Durga Ganesh Youth</h1>
@@ -143,32 +161,28 @@
   <section id="gallery">
   <h2>Gallery</h2>
 
-  <div class="gallery">
+  <div class="gallery-cards">
     <!-- Ganesh Idol -->
-    <a href="ganesh-idol/index.html" style="text-decoration:none; color:inherit;">
-      <div>
-        <img src="ganesh-idol-thumbnail.jpg" alt="Ganesh Idol" width="100%" style="border-radius: 10px;">
-        <h3>Ganesh Idol</h3>
-      </div>
+    <a href="ganesh-idol/index.html" class="gallery-card">
+      <img src="ganesh-idol-thumbnail.jpg" alt="Ganesh Idol">
+      <span>Ganesh Idol</span>
     </a>
 
     <!-- Ganesh Utsav -->
-    <a href="ganesh-utsav/index.html" style="text-decoration:none; color:inherit;">
-      <div>
-        <img src="ganesh-utsav-thumbnail.jpg" alt="Ganesh Utsav" width="100%" style="border-radius: 10px;">
-        <h3>Ganesh Utsav</h3>
-      </div>
+    <a href="ganesh-utsav/index.html" class="gallery-card">
+      <img src="ganesh-utsav-thumbnail.jpg" alt="Ganesh Utsav">
+      <span>Ganesh Utsav</span>
     </a>
 
     <!-- Cultural Program -->
-    <a href="cultural-program/index.html" style="text-decoration:none; color:inherit;">
-      <div>
-        <img src="cultural-program-thumbnail.jpg" alt="Cultural Program" width="100%" style="border-radius: 10px;">
-        <h3>Cultural Program</h3>
-      </div>
+    <a href="cultural-program/index.html" class="gallery-card">
+      <img src="cultural-program-thumbnail.jpg" alt="Cultural Program">
+      <span>Cultural Program</span>
     </a>
+    
   </div>
 </section>
+
 
 
   <section id="donate">
