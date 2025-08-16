@@ -1,170 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Ganesh Idol Gallery</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f5f0;
-            padding: 2rem;
-            text-align: center;
-        }
-        h1 {
-            color: #b71c1c;
-        }
-        .gallery-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.2rem;
-            margin-top: 2rem;
-        }
-        .gallery-button {
-            background-color: #b71c1c;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: background 0.3s;
-        }
-        .gallery-button:hover {
-            background-color: #d32f2f;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Durga Ganesh Youth ! </title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f5f0;
+      color: #333;
+    }
+    header {
+      background-color: #0b1d3a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    header img {
+      width: 120px;
+    }
+    nav {
+      background-color: #b71c1c;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #d32f2f;
+    }
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+    h2 {
+      color: #b71c1c;
+    }
+    .events, .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .events div, .gallery img {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 300px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .donate {
+      background-color: #fff7e6;
+      padding: 2rem;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    footer {
+      background-color: #0b1d3a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    @media (max-width: 600px) {
+      nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    .gallery-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-button {
+      background-color: #b71c1c;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    .gallery-button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="image-1.png" alt="sri Durga Ganesh Youth Logo" style="height:150px;">
+    <h1>Sri Durga Ganesh Youth</h1>
+  </header>
 
-    <h1>Ganesh Idol Gallery</h1>
-    <p>Select a year to view idol photos:</p>
-
-    <div class="gallery-buttons">
-        <a href="2024.html" class="gallery-button">2024</a>
-        <a href="2025.html" class="gallery-button">2025</a>
-    </div>
-
-    <br><br>
-    <a href="../index.html" style="color:#555; text-decoration:underline;">← Back to Home</a>
-
-</body>
-</html>
-
-    <header style="text-align:center;">
-        <img src="image-1.png"
-    alt="sri Durga Ganesh Youth Logo "
-    style="height:150px;">
-        <h1>Sri Durga Ganesh Youth </h1>
-    </header><nav>
+  <nav>
     <a href="#home">Home</a>
     <a href="#about">About Us</a>
     <a href="#events">Events</a>
     <a href="#gallery">Gallery</a>
     <a href="#donate">Donate</a>
     <a href="#contact">Contact</a>
-</nav>
+  </nav>
 
-<section id="home">
-    <h2>Welcome to Sri Durga Ganesh Youth (Gidajam) </h2>
+  <section id="home">
+    <h2>Welcome to Sri Durga Ganesh Youth (Gidajam)</h2>
     <p>Celebrating devotion, unity, and cultural heritage through our Ganesh Utsav and social service activities.</p>
-</section>
+  </section>
 
-<section id="about">
+  <section id="about">
     <h2>About Us</h2>
     <p>We are a youth group dedicated to organizing grand Ganesh Chaturthi celebrations, cultural programs, and community service initiatives that bring people together in devotion and joy.</p>
-</section>
+  </section>
 
-<section id="events">
+  <section id="events">
     <h2>Upcoming Events</h2>
     <div class="events">
-        <div>
-            <h3>Ganesh Chaturthi 2025</h3>
-            <p>Date: 27 August 2025</p>
-            <p>Join us for the grand celebration with music, dance, and aarti.</p>
-        </div>
-        <div>
-            <h3>Charity Drive</h3>
-            <p>Date: 10 September 2025</p>
-            <p>Distributing food and clothes to the needy in our community.</p>
-        </div>
+      <div>
+        <h3>Ganesh Chaturthi 2025</h3>
+        <p>Date: 27 August 2025</p>
+        <p>Join us for the grand celebration with music, dance, and aarti.</p>
+      </div>
+      <div>
+        <h3>Charity Drive</h3>
+        <p>Date: 10 September 2025</p>
+        <p>Distributing food and clothes to the needy in our community.</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<section id="gallery">
+  <section id="gallery">
     <h2>Gallery</h2>
 
     <h3>Ganesh Idol</h3>
     <div class="gallery-buttons">
-        <a href="ganesh-idol/2024.html" class="gallery-button">2024</a>
-        <a href="ganesh-idol/2025.html" class="gallery-button">2025</a>
+      <a href="ganesh-idol/2024.html" class="gallery-button">2024</a>
+      <a href="ganesh-idol/2025.html" class="gallery-button">2025</a>
     </div>
 
-    <!-- You can keep other galleries here as well -->
     <h3>Ganesh Utsav</h3>
     <div class="gallery">
-        <img src="ganesh2.jpg" alt="Ganesh Utsav" width="300">
+      <img src="ganesh2.jpg" alt="Ganesh Utsav" width="300">
     </div>
 
     <h3>Cultural Program</h3>
     <div class="gallery">
-        <img src="ganesh3.jpg" alt="Cultural Program" width="300">
+      <img src="ganesh3.jpg" alt="Cultural Program" width="300">
     </div>
-</section>
+  </section>
 
-
-
-
-
-<section id="donate">
+  <section id="donate">
     <h2>Support Us</h2>
     <h3>Support Us via UPI</h3>
 
     <p>Your contribution helps us organize better celebrations and serve the community.</p>
 
     <p>
-        <strong>UPI ID:</strong> 
-        <span id="upi-id">9908439697-2@ybl</span>
-        <button onclick="copyUPI()" style="margin-left:10px; padding:5px 10px; border:none; background-color:#b71c1c; color:white; border-radius:5px; cursor:pointer;">
-            Copy
-        </button>
-        <span id="copy-status" style="margin-left:10px; color:green; display:none;">Copied!</span>
+      <strong>UPI ID:</strong> 
+      <span id="upi-id">9908439697-2@ybl</span>
+      <button onclick="copyUPI()" style="margin-left:10px; padding:5px 10px; border:none; background-color:#b71c1c; color:white; border-radius:5px; cursor:pointer;">
+        Copy
+      </button>
+      <span id="copy-status" style="margin-left:10px; color:green; display:none;">Copied!</span>
     </p>
 
     <br>
     <img src="IMG_20250816_135802.jpg" alt="Scan to Pay" width="200">
 
     <p style="font-size: 0.9rem; color: #555;">💡 Long press the UPI ID above to copy on mobile — or click "Copy" button</p>
-</section>
+  </section>
 
-<!-- Add this script at the end of your body tag OR inside <script> -->
-<script>
-    function copyUPI() {
-        const upiId = document.getElementById("upi-id").textContent;
-        navigator.clipboard.writeText(upiId).then(() => {
-            document.getElementById("copy-status").style.display = "inline";
-            setTimeout(() => {
-                document.getElementById("copy-status").style.display = "none";
-            }, 2000);
-        });
-    }
-</script>
-
-
-
-
-
-<section id="contact">
+  <section id="contact">
     <h2>Contact Us</h2>
     <p>📞 Phone: +91 9908439697 </p>
     <p>📧 Email: naniijjapu@gmail.com </p>
     <p>🌐 Follow us on Instagram : @sri_durga_ganesh_youth_gidajam</p>
-</section>
+  </section>
 
-<footer>
+  <footer>
     <p>&copy; 2025 Sri Durga Ganesh Youth. All Rights Reserved.</p>
-</footer>
+  </footer>
 
+  <script>
+    function copyUPI() {
+      const upiId = document.getElementById("upi-id").textContent;
+      navigator.clipboard.writeText(upiId).then(() => {
+        document.getElementById("copy-status").style.display = "inline";
+        setTimeout(() => {
+          document.getElementById("copy-status").style.display = "none";
+        }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>
