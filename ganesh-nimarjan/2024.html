@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ganesh Nimarjan 2024 Videos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f5f0;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #004d40;
+      color: white;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .video-gallery {
+      display: flex;
+      flex-direction: column; /* ✅ one below the other */
+      align-items: center;
+      padding: 1rem;
+      gap: 1.5rem; /* space between videos */
+    }
+
+    .video-card {
+      width: 100%;
+      max-width: 500px; /* ✅ good size for phone */
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .caption {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      color: #444;
+      background-color: #f1f1f1;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 1.5rem;
+      padding: 10px 20px;
+      background-color: #004d40;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #00695c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ganesh Nimarjan 2024 Videos</h1>
+  </header>
+
+  <div class="video-gallery">
+    <!-- 🔴 Replace src with your uploaded video file paths -->
+    <div class="video-card">
+      <video controls poster="thumbnail1.jpg">
+        <source src="video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="caption">Ganesh Nimarjan Procession – Video 1</div>
+    </div>
+
+    <div class="video-card">
+      <video controls poster="thumbnail2.jpg">
+        <source src="video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="caption">Ganesh Nimarjan Celebration – Video 2</div>
+    </div>
+
+    <div class="video-card">
+      <video controls poster="thumbnail3.jpg">
+        <source src="video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="caption">Ganesh Nimarjan Final Moments – Video 3</div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-btn">← Back</a>
+
+</body>
+</html>
