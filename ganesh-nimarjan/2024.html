@@ -26,7 +26,7 @@
 
     .video-gallery {
       display: flex;
-      flex-direction: column; /* ✅ one below the other */
+      flex-direction: column; /* one below the other */
       align-items: center;
       padding: 1rem;
       gap: 1.5rem; /* space between videos */
@@ -34,7 +34,7 @@
 
     .video-card {
       width: 100%;
-      max-width: 500px; /* ✅ good size for phone */
+      max-width: 500px; /* good size for phone */
       background: white;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -77,29 +77,31 @@
   </header>
 
   <div class="video-gallery">
-    <!-- 🔴 Replace src with your uploaded video file paths -->
+    <!-- Video 1 -->
     <div class="video-card">
-      <video controls poster="thumbnail1.jpg">
-        <source src="video1.mp4" type="video/mp4">
+      <video controls>
+        <source src="IMG_9597.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <div class="caption">Ganesh Nimarjan Procession – Video 1</div>
+      <div class="caption">Ganesh Nimarjan – Video 1</div>
     </div>
 
+    <!-- Video 2 -->
     <div class="video-card">
-      <video controls poster="thumbnail2.jpg">
-        <source src="video2.mp4" type="video/mp4">
+      <video controls>
+        <source src="Snapchat-751766421.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <div class="caption">Ganesh Nimarjan Celebration – Video 2</div>
+      <div class="caption">Ganesh Nimarjan – Video 2</div>
     </div>
 
+    <!-- Video 3 -->
     <div class="video-card">
-      <video controls poster="thumbnail3.jpg">
-        <source src="video3.mp4" type="video/mp4">
+      <video controls>
+        <source src="VID-20241014-WA0001.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <div class="caption">Ganesh Nimarjan Final Moments – Video 3</div>
+      <div class="caption">Ganesh Nimarjan – Video 3</div>
     </div>
   </div>
 
