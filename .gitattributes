@@ -1,2 +1,0 @@
-VID-20241014-WA0001.mp4 filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
