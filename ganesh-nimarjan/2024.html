@@ -7,49 +7,115 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
       margin: 0;
       padding: 0;
-      background: #f4f4f9;
       text-align: center;
     }
+
     h1 {
-      background: #ff9800;
-      color: white;
-      padding: 15px;
-      margin: 0;
+      margin: 20px 0;
+      font-size: 22px;
+      color: #ffd700;
     }
+
     .video-container {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      padding: 15px;
+      align-items: center;
+      gap: 15px;
+      padding: 10px;
     }
+
     video {
       width: 100%;
-      max-width: 500px;  /* keeps size decent on desktop */
+      max-width: 360px; /* small size for phone */
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      background: #000;
+      transform: rotate(0deg); /* change to 90deg if sideways */
+    }
+
+    .controls {
+      margin-top: 5px;
+    }
+
+    button {
+      background: #ffd700;
+      color: #111;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 3px;
+    }
+
+    button:hover {
+      background: orange;
     }
   </style>
 </head>
 <body>
-  <h1>Ganesh Nimarjan 2024</h1>
-  
+
+  <h1>🙏 Ganesh Nimarjan 2024 🙏</h1>
+
   <div class="video-container">
-    <video controls>
-      <source src="video0001.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div>
+      <video id="vid1" controls>
+        <source src="video0001.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+      <div class="controls">
+        <button onclick="rotateVideo('vid1')">Rotate</button>
+        <button onclick="fullscreenVideo('vid1')">Fullscreen</button>
+      </div>
+    </div>
 
-    <video controls>
-      <source src="video0002.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div>
+      <video id="vid2" controls>
+        <source src="video0002.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+      <div class="controls">
+        <button onclick="rotateVideo('vid2')">Rotate</button>
+        <button onclick="fullscreenVideo('vid2')">Fullscreen</button>
+      </div>
+    </div>
 
-    <video controls>
-      <source src="video0003.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div>
+      <video id="vid3" controls>
+        <source src="video0003.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+      <div class="controls">
+        <button onclick="rotateVideo('vid3')">Rotate</button>
+        <button onclick="fullscreenVideo('vid3')">Fullscreen</button>
+      </div>
+    </div>
   </div>
+
+  <script>
+    function rotateVideo(id) {
+      const video = document.getElementById(id);
+      let current = video.style.transform || "rotate(0deg)";
+      let angle = parseInt(current.replace("rotate(", "").replace("deg)", ""));
+      angle = (angle + 90) % 360;
+      video.style.transform = `rotate(${angle}deg)`;
+    }
+
+    function fullscreenVideo(id) {
+      const video = document.getElementById(id);
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) { /* Safari */
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) { /* IE11 */
+        video.msRequestFullscreen();
+      }
+    }
+  </script>
+
 </body>
 </html>
