@@ -51,12 +51,26 @@
       background: rgba(0,0,0,0.95);
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
     .lightbox.active {
       display: flex;
     }
-    .lightbox img,
-    .lightbox video {
+
+    .lightbox-track {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+      width: 100%;
+      height: 100%;
+    }
+    .lightbox-slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox-slide img,
+    .lightbox-slide video {
       max-width: 95%;
       max-height: 95%;
       border-radius: 10px;
@@ -95,7 +109,7 @@
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
-    <span id="lightbox-content"></span>
+    <div class="lightbox-track" id="lightbox-track"></div>
   </div>
 
   <div class="back-button">
@@ -106,7 +120,7 @@
   <script>
     const galleryItems = document.querySelectorAll('.gallery img, .gallery video');
     const lightbox = document.getElementById('lightbox');
-    const lightboxContent = document.getElementById('lightbox-content');
+    const track = document.getElementById('lightbox-track');
     let currentIndex = 0;
 
     // Open lightbox
@@ -118,24 +132,33 @@
     });
 
     function openLightbox() {
-      const item = galleryItems[currentIndex];
+      track.innerHTML = "";
+      galleryItems.forEach((item) => {
+        let slide = document.createElement("div");
+        slide.classList.add("lightbox-slide");
+        if (item.dataset.type === "img") {
+          slide.innerHTML = `<img src="${item.src}" />`;
+        } else {
+          slide.innerHTML = `<video src="${item.src}" controls autoplay></video>`;
+        }
+        track.appendChild(slide);
+      });
+      updateSlide();
       lightbox.classList.add('active');
-      if (item.dataset.type === "img") {
-        lightboxContent.innerHTML = `<img src="${item.src}" />`;
-      } else {
-        lightboxContent.innerHTML = `<video src="${item.src}" controls autoplay></video>`;
-      }
+    }
+
+    function updateSlide() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
     // Close on outside click
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove('active');
-        lightboxContent.innerHTML = "";
       }
     });
 
-    // Swipe handling
+    // Swipe handling with animation
     let startX = 0;
     lightbox.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
@@ -145,10 +168,10 @@
       let endX = e.changedTouches[0].clientX;
       if (endX < startX - 50) { // Swipe left → next
         currentIndex = (currentIndex + 1) % galleryItems.length;
-        openLightbox();
+        updateSlide();
       } else if (endX > startX + 50) { // Swipe right → previous
         currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-        openLightbox();
+        updateSlide();
       }
     });
   </script>
