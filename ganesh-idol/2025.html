@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ganesh Idol - 2025</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganesh Idol 2025</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #f8f5f0;
-      color: #333;
+      background: #111; /* dark background */
+      color: #ffd700;  /* golden text */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
     }
 
-    header {
-      background-color: #b71c1c;
-      color: white;
-      padding: 1.5rem;
+    .container {
+      padding: 20px;
     }
 
     h1 {
-      margin: 0;
       font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
     }
 
     .coming-soon {
-      margin-top: 5rem;
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: bold;
-      color: #b71c1c;
+      animation: blink 1.5s infinite;
     }
 
-    .back-button {
-      margin-top: 3rem;
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
     }
 
-    .back-button a {
-      display: inline-block;
-      background-color: #b71c1c;
-      color: white;
-      padding: 10px 20px;
-      margin: 10px;
-      text-decoration: none;
-      font-size: 1rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-button a:hover {
-      background-color: #d32f2f;
+    /* Mobile fit */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      p { font-size: 1rem; }
+      .coming-soon { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Ganesh Idol - 2025</h1>
-  </header>
-
-  <div class="coming-soon">
-    🚧 Gallery Coming Soon 🚧
+  <div class="container">
+    <h1>🙏 Ganesh Idol 2025 🙏</h1>
+    <p>Celebrations are on the way...</p>
+    <div class="coming-soon">✨ Coming Soon ✨</div>
   </div>
-
-  <div class="back-button">
-    <a href="index.html">← Back </a>
-    <a href="../index.html">🏠 Home</a>
-  </div>
-
 </body>
 </html>
-
