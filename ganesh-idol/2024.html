@@ -52,14 +52,14 @@
       justify-content: center;
       align-items: center;
     }
+    .lightbox.active {
+      display: flex;
+    }
     .lightbox img,
     .lightbox video {
       max-width: 95%;
       max-height: 95%;
       border-radius: 10px;
-    }
-    .lightbox:target {
-      display: flex;
     }
 
     .back-button {
@@ -87,22 +87,71 @@
   </header>
 
   <div class="gallery">
-    <a href="#img1"><img src="IMG-20250816-WA0011.jpg" alt="Ganesh Idol 1"></a>
-    <a href="#img2"><img src="IMG-20250816-WA0012.jpg" alt="Ganesh Idol 2"></a>
-    <a href="#img3"><img src="IMG-20250816-WA0013.jpg" alt="Ganesh Idol 3"></a>
-    <a href="#vid1"><video src="VID-20240908-WA0000.mp4"></video></a>
+    <img src="IMG-20250816-WA0011.jpg" alt="Ganesh Idol 1" data-type="img" />
+    <img src="IMG-20250816-WA0012.jpg" alt="Ganesh Idol 2" data-type="img" />
+    <img src="IMG-20250816-WA0013.jpg" alt="Ganesh Idol 3" data-type="img" />
+    <video src="VID-20240908-WA0000.mp4" data-type="video"></video>
   </div>
 
-  <!-- Lightbox Views -->
-  <div id="img1" class="lightbox"><a href="#"><img src="IMG-20250816-WA0011.jpg"></a></div>
-  <div id="img2" class="lightbox"><a href="#"><img src="IMG-20250816-WA0012.jpg"></a></div>
-  <div id="img3" class="lightbox"><a href="#"><img src="IMG-20250816-WA0013.jpg"></a></div>
-  <div id="vid1" class="lightbox"><a href="#"><video src="VID-20240908-WA0000.mp4" controls autoplay></video></a></div>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span id="lightbox-content"></span>
+  </div>
 
   <div class="back-button">
     <a href="../index.html">🏠 Home</a>
     <a href="index.html">← Back</a>
   </div>
+
+  <script>
+    const galleryItems = document.querySelectorAll('.gallery img, .gallery video');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.getElementById('lightbox-content');
+    let currentIndex = 0;
+
+    // Open lightbox
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        currentIndex = index;
+        openLightbox();
+      });
+    });
+
+    function openLightbox() {
+      const item = galleryItems[currentIndex];
+      lightbox.classList.add('active');
+      if (item.dataset.type === "img") {
+        lightboxContent.innerHTML = `<img src="${item.src}" />`;
+      } else {
+        lightboxContent.innerHTML = `<video src="${item.src}" controls autoplay></video>`;
+      }
+    }
+
+    // Close on outside click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        lightboxContent.innerHTML = "";
+      }
+    });
+
+    // Swipe handling
+    let startX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    lightbox.addEventListener('touchend', (e) => {
+      let endX = e.changedTouches[0].clientX;
+      if (endX < startX - 50) { // Swipe left → next
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        openLightbox();
+      } else if (endX > startX + 50) { // Swipe right → previous
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        openLightbox();
+      }
+    });
+  </script>
 
 </body>
 </html>
