@@ -15,45 +15,82 @@
     }
 
     h1 {
-      margin: 20px 0;
+      margin: 15px 0;
       font-size: 22px;
       color: #ffd700;
     }
 
-    .video-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
       padding: 10px;
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1; /* makes it square */
+      overflow: hidden;
+      border-radius: 10px;
+      background: #000;
     }
 
     video {
       width: 100%;
-      max-width: 360px; /* small size for phone */
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-      background: #000;
-      transform: rotate(0deg); /* change to 90deg if sideways */
+      height: 100%;
+      object-fit: cover;
     }
 
-    .controls {
-      margin-top: 5px;
-    }
-
-    button {
-      background: #ffd700;
-      color: #111;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 8px;
+    /* Overlay icons */
+    .icon {
+      position: absolute;
+      background: rgba(0,0,0,0.6);
+      padding: 6px;
+      border-radius: 50%;
       cursor: pointer;
-      font-size: 14px;
-      margin: 3px;
+      font-size: 16px;
+      color: #fff;
+      transition: background 0.3s;
     }
 
-    button:hover {
-      background: orange;
+    .icon:hover {
+      background: rgba(255, 215, 0, 0.8);
+    }
+
+    .rotate-icon {
+      bottom: 8px;
+      left: 8px;
+    }
+
+    .fullscreen-icon {
+      bottom: 8px;
+      right: 8px;
+    }
+
+    /* Swipe gallery effect */
+    .gallery-wrapper {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .video-box {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+    }
+
+    @media(min-width: 768px) {
+      .gallery-wrapper {
+        overflow-x: visible;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .video-box {
+        flex: unset;
+      }
     }
   </style>
 </head>
@@ -61,38 +98,29 @@
 
   <h1>🙏 Ganesh Nimarjan 2024 🙏</h1>
 
-  <div class="video-container">
-    <div>
+  <div class="gallery-wrapper">
+    <div class="video-box">
       <video id="vid1" controls>
         <source src="video0001.mp4" type="video/mp4">
-        Your browser does not support video.
       </video>
-      <div class="controls">
-        <button onclick="rotateVideo('vid1')">Rotate</button>
-        <button onclick="fullscreenVideo('vid1')">Fullscreen</button>
-      </div>
+      <div class="icon rotate-icon" onclick="rotateVideo('vid1')">↻</div>
+      <div class="icon fullscreen-icon" onclick="fullscreenVideo('vid1')">⛶</div>
     </div>
 
-    <div>
+    <div class="video-box">
       <video id="vid2" controls>
         <source src="video0002.mp4" type="video/mp4">
-        Your browser does not support video.
       </video>
-      <div class="controls">
-        <button onclick="rotateVideo('vid2')">Rotate</button>
-        <button onclick="fullscreenVideo('vid2')">Fullscreen</button>
-      </div>
+      <div class="icon rotate-icon" onclick="rotateVideo('vid2')">↻</div>
+      <div class="icon fullscreen-icon" onclick="fullscreenVideo('vid2')">⛶</div>
     </div>
 
-    <div>
+    <div class="video-box">
       <video id="vid3" controls>
         <source src="video0003.mp4" type="video/mp4">
-        Your browser does not support video.
       </video>
-      <div class="controls">
-        <button onclick="rotateVideo('vid3')">Rotate</button>
-        <button onclick="fullscreenVideo('vid3')">Fullscreen</button>
-      </div>
+      <div class="icon rotate-icon" onclick="rotateVideo('vid3')">↻</div>
+      <div class="icon fullscreen-icon" onclick="fullscreenVideo('vid3')">⛶</div>
     </div>
   </div>
 
@@ -100,7 +128,7 @@
     function rotateVideo(id) {
       const video = document.getElementById(id);
       let current = video.style.transform || "rotate(0deg)";
-      let angle = parseInt(current.replace("rotate(", "").replace("deg)", ""));
+      let angle = parseInt(current.replace("rotate(", "").replace("deg)", "")) || 0;
       angle = (angle + 90) % 360;
       video.style.transform = `rotate(${angle}deg)`;
     }
@@ -109,9 +137,9 @@
       const video = document.getElementById(id);
       if (video.requestFullscreen) {
         video.requestFullscreen();
-      } else if (video.webkitRequestFullscreen) { /* Safari */
+      } else if (video.webkitRequestFullscreen) {
         video.webkitRequestFullscreen();
-      } else if (video.msRequestFullscreen) { /* IE11 */
+      } else if (video.msRequestFullscreen) {
         video.msRequestFullscreen();
       }
     }
