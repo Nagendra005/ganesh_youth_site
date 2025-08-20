@@ -1,86 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ganesh Idol - 2024</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: black;
-      color: white;
-      overflow: hidden; /* stop page scrolling */
+      background-color: #f5f5f5;
+      text-align: center;
     }
-
     header {
-      background-color: #b71c1c;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.5rem;
-    }
-
-    .carousel {
-      display: flex;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      width: 100vw;
-      height: calc(100vh - 70px); /* full screen minus header */
-    }
-
-    .carousel img,
-    .carousel video {
-      flex: 0 0 100%;
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* fit full screen */
-      scroll-snap-align: center;
-      background: black;
-    }
-
-    /* Hide scrollbar */
-    .carousel::-webkit-scrollbar {
-      display: none;
-    }
-
-    .back-button {
-      text-align: center;
-      padding: 1rem;
-      background: #111;
-    }
-
-    .back-button a {
+      background-color: #b30000;
       color: white;
-      background: #b71c1c;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 6px;
+      padding: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    /* Responsive: mobile view */
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    /* Lightbox overlay */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding: 20px;
+      background: rgba(0,0,0,0.95);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      text-align: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      margin-top: 5%;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    Ganesh Idol - 2024
-  </header>
+  <header id="page-header">Ganesh Idol - 2024</header>
 
-  <div class="carousel">
-    <!-- Images -->
-    <img src="IMG-20250816-WA0011.jpg" alt="Ganesh Idol 1" />
-    <img src="IMG-20250816-WA0012.jpg" alt="Ganesh Idol 2" />
-    <img src="IMG-20250816-WA0013.jpg" alt="Ganesh Idol 3" />
-
-    <!-- Video -->
-    <video controls>
-      <source src="VID-20240908-WA0000.mp4" type="video/mp4">
-      Your browser does not support video.
-    </video>
+  <div class="gallery">
+    <img src="images/idol1.jpg" alt="Ganesh Idol 1" onclick="openLightbox(this)">
+    <img src="images/idol2.jpg" alt="Ganesh Idol 2" onclick="openLightbox(this)">
+    <img src="images/idol3.jpg" alt="Ganesh Idol 3" onclick="openLightbox(this)">
+    <!-- Add more images if needed -->
   </div>
 
-  <div class="back-button">
-    <a href="../index.html">🏠 Home</a>
-    <a href="index.html">← Back</a>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="">
   </div>
+
+  <script>
+    function openLightbox(img) {
+      document.getElementById("lightbox").style.display = "block";
+      document.getElementById("lightbox-img").src = img.src;
+      document.getElementById("page-header").style.display = "none"; // hide header
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+      document.getElementById("page-header").style.display = "block"; // show header again
+    }
+  </script>
 
 </body>
 </html>
