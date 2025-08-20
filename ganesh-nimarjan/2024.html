@@ -3,20 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ganesh Videos</title>
+  <title>Ganesh Videos 2024</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       background: #111;
-      color: white;
-      text-align: center;
-    }
-
-    h1 {
-      padding: 15px;
-      margin: 0;
-      background: #b30000;
     }
 
     /* Gallery grid */
@@ -64,14 +55,12 @@
 
     @media (max-width: 600px) {
       .gallery {
-        grid-template-columns: repeat(3, 1fr); /* still 3 per row on phone */
+        grid-template-columns: repeat(3, 1fr); /* still 3 per row */
       }
     }
   </style>
 </head>
 <body>
-
-  <h1>Ganesh Utsav Videos</h1>
 
   <!-- Video Grid -->
   <div class="gallery">
@@ -91,21 +80,46 @@
     const overlay = document.getElementById("overlay");
     const overlayVideo = document.getElementById("overlayVideo");
 
-    // When user clicks a video → open fullscreen overlay
-    videos.forEach(video => {
+    let currentIndex = 0;
+
+    // Open overlay on video click
+    videos.forEach((video, index) => {
       video.addEventListener("click", () => {
-        overlay.style.display = "flex";
-        overlayVideo.src = video.src;
-        overlayVideo.play();
+        currentIndex = index;
+        openOverlay();
       });
     });
 
-    // Close overlay
+    function openOverlay() {
+      overlay.style.display = "flex";
+      overlayVideo.src = videos[currentIndex].src;
+      overlayVideo.play();
+    }
+
     function closeOverlay() {
       overlay.style.display = "none";
       overlayVideo.pause();
       overlayVideo.src = "";
     }
+
+    // Swipe gesture support
+    let startX = 0;
+    overlay.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+    });
+
+    overlay.addEventListener("touchend", e => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) {
+        // swipe left → next video
+        currentIndex = (currentIndex + 1) % videos.length;
+        openOverlay();
+      } else if (endX - startX > 50) {
+        // swipe right → previous video
+        currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+        openOverlay();
+      }
+    });
   </script>
 
 </body>
