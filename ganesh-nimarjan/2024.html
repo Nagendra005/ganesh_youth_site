@@ -3,124 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ganesh Nimarjan 2024 Videos</title>
+  <title>Ganesh Nimarjan - 2024</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f8f5f0;
       color: #333;
-      text-align: center;
     }
 
     header {
-      background-color: #004d40;
+      background-color: #b71c1c;
       color: white;
+      text-align: center;
       padding: 1rem;
     }
 
     h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
 
-    .video-gallery {
+    .gallery {
       display: flex;
-      flex-direction: column; /* one below the other */
-      align-items: center;
-      padding: 1rem;
-      gap: 1.5rem; /* space between videos */
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
     }
 
-    .video-card {
-      width: 100%;
-      max-width: 500px; /* good size for phone */
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
+    .gallery img,
+    .gallery video {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
     }
 
-    video {
-      width: 100%;
-      border-radius: 12px 12px 0 0;
+    .gallery img:hover,
+    .gallery video:hover {
+      transform: scale(1.05);
     }
 
-    .caption {
-      padding: 0.5rem;
-      font-size: 0.9rem;
-      color: #444;
-      background-color: #f1f1f1;
+    .back-button {
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
-    .back-btn {
-      display: inline-block;
-      margin: 1.5rem;
-      padding: 10px 20px;
-      background-color: #004d40;
+    .back-button a {
+      background-color: #b71c1c;
       color: white;
+      padding: 10px 20px;
       text-decoration: none;
-      border-radius: 8px;
       font-size: 1rem;
-      transition: background 0.3s ease;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
     }
 
-    .back-btn:hover {
-      background-color: #00695c;
+    .back-button a:hover {
+      background-color: #d32f2f;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Ganesh Nimarjan 2024 Videos</h1>
+    <h1>Ganesh Nimarjan - 2024</h1>
   </header>
 
-  <div class="video-gallery">
-    <!-- Video 1 -->
-    <div class="video-card">
-      <video controls>
-        <source src="video0002.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="caption">Ganesh Nimarjan – Video 1</div>
-    </div>
-
-    <!-- Video 2 -->
-    <div class="video-card">
-      <video controls>
-        <source src="ganesh-idol/VID-20240908-WA0000.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="caption">Ganesh Nimarjan – Video 2</div>
-    </div>
-
-    <!-- Video 3 -->
-    <div class="video-card">
-      <video controls>
-       <source src="video0003.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="caption">Ganesh Nimarjan – Video 3</div>
-    </div>
-      <!-- new code added -->
-     <div class="gallery">
-
-    <!-- Video -->
+  <div class="gallery">
+    <!-- Videos -->
     <video controls>
-      <source src="VID-20240908-WA0000.mp4" type="video/mp4">
+      <source src="video0001.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <video controls>
+      <source src="video0002.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <video controls>
+      <source src="video0003.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
-  </div>
 
-  <a href="index.html" class="back-btn">← Back</a>
+  <div class="back-button">
+    <a href="../index.html">🏠 Home</a>
+    <a href="index.html">← Back</a><br><br>
+  </div>
 
 </body>
 </html>
-
-
-
-
-
-
