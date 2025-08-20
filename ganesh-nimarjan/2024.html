@@ -3,145 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ganesh Nimarjan 2024</title>
+  <title>Ganesh Videos</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
       margin: 0;
-      padding: 0;
+      background: #f4f4f4;
       text-align: center;
     }
-
     h1 {
-      margin: 15px 0;
-      font-size: 22px;
-      color: #ffd700;
+      background: #b30000;
+      color: white;
+      padding: 15px;
+      margin: 0;
     }
-
     .gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      padding: 10px;
-    }
-
-    .video-box {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1; /* makes it square */
-      overflow: hidden;
-      border-radius: 10px;
-      background: #000;
-    }
-
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Overlay icons */
-    .icon {
-      position: absolute;
-      background: rgba(0,0,0,0.6);
-      padding: 6px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 16px;
-      color: #fff;
-      transition: background 0.3s;
-    }
-
-    .icon:hover {
-      background: rgba(255, 215, 0, 0.8);
-    }
-
-    .rotate-icon {
-      bottom: 8px;
-      left: 8px;
-    }
-
-    .fullscreen-icon {
-      bottom: 8px;
-      right: 8px;
-    }
-
-    /* Swipe gallery effect */
-    .gallery-wrapper {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      display: flex;
+      grid-template-columns: repeat(3, 1fr); /* 3 per row */
       gap: 10px;
       padding: 10px;
     }
-
-    .video-box {
-      flex: 0 0 100%;
-      scroll-snap-align: center;
+    .gallery video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
     }
-
-    @media(min-width: 768px) {
-      .gallery-wrapper {
-        overflow-x: visible;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .video-box {
-        flex: unset;
-      }
+    /* Fullscreen overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .overlay video {
+      width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <h1>🙏 Ganesh Nimarjan 2024 🙏</h1>
+  <h1>Ganesh Idol Videos</h1>
 
-  <div class="gallery-wrapper">
-    <div class="video-box">
-      <video id="vid1" controls>
-        <source src="video0001.mp4" type="video/mp4">
-      </video>
-      <div class="icon rotate-icon" onclick="rotateVideo('vid1')">↻</div>
-      <div class="icon fullscreen-icon" onclick="fullscreenVideo('vid1')">⛶</div>
-    </div>
+  <!-- Gallery Grid -->
+  <div class="gallery">
+    <video src="video1.mp4" muted></video>
+    <video src="video2.mp4" muted></video>
+    <video src="video3.mp4" muted></video>
+    <video src="video4.mp4" muted></video>
+    <video src="video5.mp4" muted></video>
+    <video src="video6.mp4" muted></video>
+  </div>
 
-    <div class="video-box">
-      <video id="vid2" controls>
-        <source src="video0002.mp4" type="video/mp4">
-      </video>
-      <div class="icon rotate-icon" onclick="rotateVideo('vid2')">↻</div>
-      <div class="icon fullscreen-icon" onclick="fullscreenVideo('vid2')">⛶</div>
-    </div>
-
-    <div class="video-box">
-      <video id="vid3" controls>
-        <source src="video0003.mp4" type="video/mp4">
-      </video>
-      <div class="icon rotate-icon" onclick="rotateVideo('vid3')">↻</div>
-      <div class="icon fullscreen-icon" onclick="fullscreenVideo('vid3')">⛶</div>
-    </div>
+  <!-- Overlay for Fullscreen -->
+  <div class="overlay" id="overlay">
+    <span class="close-btn" onclick="closeOverlay()">&times;</span>
+    <video id="overlayVideo" controls></video>
   </div>
 
   <script>
-    function rotateVideo(id) {
-      const video = document.getElementById(id);
-      let current = video.style.transform || "rotate(0deg)";
-      let angle = parseInt(current.replace("rotate(", "").replace("deg)", "")) || 0;
-      angle = (angle + 90) % 360;
-      video.style.transform = `rotate(${angle}deg)`;
-    }
+    const videos = document.querySelectorAll(".gallery video");
+    const overlay = document.getElementById("overlay");
+    const overlayVideo = document.getElementById("overlayVideo");
 
-    function fullscreenVideo(id) {
-      const video = document.getElementById(id);
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitRequestFullscreen) {
-        video.webkitRequestFullscreen();
-      } else if (video.msRequestFullscreen) {
-        video.msRequestFullscreen();
-      }
+    // When user clicks video → open fullscreen overlay
+    videos.forEach(video => {
+      video.addEventListener("click", () => {
+        overlay.style.display = "flex";
+        overlayVideo.src = video.src;
+        overlayVideo.play();
+      });
+    });
+
+    // Close overlay
+    function closeOverlay() {
+      overlay.style.display = "none";
+      overlayVideo.pause();
+      overlayVideo.src = "";
     }
   </script>
 
